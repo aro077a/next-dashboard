@@ -1,0 +1,108 @@
+%tagItemProps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.3rem;
+  font-size: 1rem;
+  border-radius: 10rem;
+  background-color: $primaryLightBlue;
+  color: $secondaryWhite;
+}
+
+%itemOpenProps {
+  display: flex;
+  padding-left: 1rem;
+  gap: 1rem;
+}
+
+.collapsed {
+  $self: &;
+  &:nth-child(7) {
+    margin-top: 2rem;
+    border-top: 1px solid $primaryLightGrey;
+  }
+  h4 {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $secondaryGrey;
+  }
+  #{$self}__child {
+    #{$self}__subChild {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      cursor: pointer;
+      #{$self}__subItem {
+        display: flex;
+        justify-content: space-between;
+        #{$self}__item {
+          font-size: 1.4rem;
+        }
+        #{$self}__itemOpen {
+          @extend %itemOpenProps;
+          span {
+            display: inline-block;
+            font-size: 1.4rem;
+            color: $primaryLightBlue;
+          }
+        }
+      }
+    }
+  }
+  #{$self}__header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    cursor: pointer;
+
+    #{$self}__item {
+      @extend %itemOpenProps;
+      #{$self}--tag {
+        @extend %tagItemProps;
+      }
+      span {
+        display: inline-block;
+        font-size: 1.4rem;
+        color: $secondaryDarkBlue;
+        white-space: nowrap;
+      }
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        fill: $secondaryDarkBlue;
+      }
+    }
+    #{$self}__itemOpen {
+      @extend %itemOpenProps;
+      #{$self}--tag {
+        @extend %tagItemProps;
+      }
+      span {
+        display: inline-block;
+        font-size: 1.4rem;
+        color: $primaryLightBlue;
+      }
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        fill: $primaryLightBlue;
+      }
+    }
+  }
+  #{$self}__collapseIcon {
+    transition: all 1s linear;
+    #{$self}--open {
+      width: 1.6rem;
+      height: 1.6rem;
+      transition: 0.4s ease;
+      transform: rotate(180deg);
+    }
+    #{$self}--close {
+      width: 1.6rem;
+      height: 1.6rem;
+      transition: 0.4s ease;
+      transform: rotate(0deg);
+    }
+  }
+}

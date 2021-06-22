@@ -1,0 +1,95 @@
+%iconProps {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: inline-block;
+  cursor: pointer;
+  color: $secondaryGrey;
+}
+
+.header {
+  $self: &;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 3.2rem;
+  border-bottom: 1px solid $primaryLightGrey;
+  #{$self}__searchContent {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    svg {
+      @extend %iconProps;
+    }
+    #{$self}__search {
+      width: 36rem;
+      height: 4.2rem;
+      padding: 1.2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-gap: 1rem;
+      gap: 1rem;
+      #{$self}__searchbox{
+        display: flex;
+        align-items: inherit;
+          gap: 1rem;
+        input {
+          border: 0;
+          outline: 0;
+          height: 2.5rem;
+          &:hover {
+            background: $primaryWhiter;
+          }
+          &::placeholder {
+            font-size: 1.4rem;
+            color: $secondaryGrey;
+            letter-spacing: .3px;
+          }
+        }
+      }
+      &:hover {
+        background: $primaryWhiter;
+      }
+  
+    }
+  }
+  #{$self}__icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    #{$self}--icon {
+      cursor: pointer;
+      width: 4rem;
+      height: 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      &:hover {
+        background: $secondaryHoverColor;
+        svg {
+          fill: $primaryLightBlue;
+        }
+      }
+      svg {
+        @extend %iconProps;
+      }
+    }
+    #{$self}__profile {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background: $secondaryHoverColor;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        clip-path: circle(50% at 50% 50%);
+      }
+    }
+  }
+}

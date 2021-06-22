@@ -1,0 +1,37 @@
+.dashboard {
+  $self: &;
+  #{$self}__title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid $primaryLightGrey;
+    padding-bottom: 2.5rem;
+    h4 {
+      font-size: 2.25rem;
+      font-weight: 600;
+    }
+    #{$self}__buttonContainer {
+      width: 12.8rem;
+      padding: 1rem 1.4rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: $primaryLightBlue;
+      button {
+        border: 0;
+        outline: 0;
+        background: $primaryLightBlue;
+        color: $secondaryWhite;
+        font-size: 1.4rem;
+        line-height: 1.6;
+      }
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        fill: $secondaryWhite;
+        display: inline-block;
+      }
+    }
+  }
+}

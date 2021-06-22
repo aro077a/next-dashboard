@@ -1,0 +1,9 @@
+.layout {
+  $self: &;
+  #{$self}__content {
+    display: flex;
+    #{$self}__main {
+      padding: 2.8rem 3.2rem;
+    }
+  }
+}

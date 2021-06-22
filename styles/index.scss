@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Open Sans'), url('./fonts/OpenSans-Regular.ttf') format('ttf');
+}
+
+@import './variables.scss';
+@import './layout.scss';
+@import './aside.scss';
+@import './header.scss';
+@import './button.scss';
+@import './dashboard.scss';
+@import './dashboardInfo.scss';
+@import './dashboardUserImport.scss';
+@import './collapseContent.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+p,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  color: $secondaryTextBlack;
+}

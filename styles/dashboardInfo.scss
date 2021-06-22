@@ -1,0 +1,77 @@
+%valuesProps {
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+}
+
+.dashboard-info {
+  $self: &;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+  #{$self}__container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid $primaryLightGrey;
+    border-radius: 0.75rem;
+    padding: 2.1rem;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 6px 12px rgba(140, 152, 164, 0.25);
+      transition: 0.3s;
+    }
+    #{$self}__content {
+      #{$self}--title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $secondaryGrey;
+      }
+      #{$self}--total {
+        margin: 1.5rem 0;
+        font-size: 2.1rem;
+        font-weight: 600;
+      }
+      #{$self}__values-content {
+        display: flex;
+        gap: 0.5rem;
+        #{$self}__values-high {
+          color: #00c9a7;
+          background-color: rgba(0, 201, 167, 0.1);
+          @extend %valuesProps;
+          #{$self}--percent {
+            font-size: 1rem;
+          }
+        }
+        #{$self}__values-low {
+          color: #ed4c78;
+          background-color: rgba(237, 76, 120, 0.1);
+          @extend %valuesProps;
+          #{$self}--percent {
+            font-size: 1rem;
+          }
+        }
+        #{$self}__values-initial {
+          color: #71869d;
+          background-color: rgba(113, 134, 157, 0.1);
+          @extend %valuesProps;
+          #{$self}--percent {
+            font-size: 1rem;
+          }
+        }
+        #{$self}--from {
+          font-size: 1.3rem;
+          color: $secondaryGrey;
+        }
+      }
+    }
+    #{$self}__chart {
+      margin-top: 2rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

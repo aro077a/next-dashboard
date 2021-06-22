@@ -18,10 +18,14 @@
       align-items: center;
       gap: 0.5rem;
       background: $primaryLightBlue;
+      cursor: pointer;
+      &:hover {
+        background-color: $primaryBlue;
+      }
       button {
         border: 0;
         outline: 0;
-        background: $primaryLightBlue;
+        background: transparent;
         color: $secondaryWhite;
         font-size: 1.4rem;
         line-height: 1.6;

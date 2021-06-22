@@ -37,6 +37,15 @@ const Dashboard = () => {
           <img src='/images/chart1.png' />
         </div>
       </section>
+      <section>{/* TODO table */}</section>
+      <section className='user-import'>
+        <div className='user-chart'>
+          <img src='/images/datalabel.png' />
+        </div>
+        <div className='user-chart'>
+          <img src='/images/datalabel.png' />
+        </div>
+      </section>
     </article>
   );
 };

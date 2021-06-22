@@ -21,6 +21,7 @@
         display: inline-block;
         width: 1.6rem;
         height: 1.6rem;
+        cursor: pointer;
       }
     }
 
@@ -77,11 +78,14 @@
         justify-content: center;
         gap: 0.5rem;
         background: $primaryLightBlue;
+        &:hover {
+          background-color: $primaryBlue;
+        }
 
         button {
           border: 0;
           outline: 0;
-          background: $primaryLightBlue;
+          background: transparent;
           color: $secondaryWhite;
           font-size: 1.4rem;
           line-height: 1.6;

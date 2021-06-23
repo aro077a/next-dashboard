@@ -57,3 +57,38 @@ export const userImportData = [
     icon: <img src='/icons/google-webdev.svg' />,
   },
 ];
+
+export const reportsData = [
+  {
+    id: 1,
+    title: 'Gross value',
+    value: '$3,500.71',
+    high: '+12.1%',
+    medium: null,
+    low: null,
+  },
+  {
+    id: 2,
+    title: 'Net volume from sales',
+    value: '$2,980.45',
+    high: null,
+    medium: '+6.9%',
+    low: null,
+  },
+  {
+    id: 3,
+    title: 'New volume from sales',
+    value: '$950.00',
+    high: null,
+    medium: null,
+    low: '-1.5%',
+  },
+  {
+    id: 4,
+    title: 'Other',
+    value: '32',
+    high: '1.9%',
+    medium: null,
+    low: null,
+  },
+];

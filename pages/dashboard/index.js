@@ -3,7 +3,7 @@ import Dashboard from '../../components/dashboard/Dashboard';
 
 export default function Index() {
   return (
-    <MainLayout title='Index Page'>
+    <MainLayout title='Dashboard'>
       <Dashboard />
     </MainLayout>
   );

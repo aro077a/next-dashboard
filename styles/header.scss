@@ -30,28 +30,30 @@
       justify-content: space-between;
       grid-gap: 1rem;
       gap: 1rem;
-      #{$self}__searchbox{
+      &:hover {
+        background: $primaryWhiter;
+        #{$self}__searchbox {
+          input {
+            background: $primaryWhiter;
+          }
+        }
+      }
+      #{$self}__searchbox {
         display: flex;
         align-items: inherit;
-          gap: 1rem;
+        gap: 1rem;
+
         input {
           border: 0;
           outline: 0;
           height: 2.5rem;
-          &:hover {
-            background: $primaryWhiter;
-          }
           &::placeholder {
             font-size: 1.4rem;
             color: $secondaryGrey;
-            letter-spacing: .3px;
+            letter-spacing: 0.3px;
           }
         }
       }
-      &:hover {
-        background: $primaryWhiter;
-      }
-  
     }
   }
   #{$self}__icons {

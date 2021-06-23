@@ -4,6 +4,7 @@ import Button from '../button/Button';
 import { infoData } from './dashboardInfoData';
 import DashboardInfo from './DashboardInfo';
 import DashboardUsersImport from './DashboardUsersImport';
+import DashboardReports from './DashboardReports';
 
 const Dashboard = () => {
   return (
@@ -42,9 +43,7 @@ const Dashboard = () => {
         <div className='user-chart'>
           <img src='/images/datalabel.png' />
         </div>
-        <div className='user-chart'>
-          <img src='/images/datalabel.png' />
-        </div>
+        <DashboardReports />
       </section>
     </article>
   );

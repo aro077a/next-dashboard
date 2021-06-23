@@ -1,0 +1,33 @@
+.reports {
+  $self: &;
+  padding: 1.6rem 2.1rem;
+  border: 1px solid $primaryLightGrey;
+  border-radius: 0.75rem;
+  #{$self}__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $primaryLightGrey;
+    padding: 1.5rem 0 2rem 0;
+    h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    svg {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      cursor: pointer;
+    }
+  }
+  #{$self}__value {
+    margin-top: 2rem;
+    p {
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: $secondaryTextBlack;
+    }
+    .rc-progress-line {
+      margin: 2rem 0;
+    }
+  }
+}

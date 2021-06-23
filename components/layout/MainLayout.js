@@ -20,6 +20,11 @@ const MainLayout = ({ children, title = 'Page', description = '...' }) => {
         <div style={{ width: '100%' }}>
           <Header openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <div className='layout__main'>{children}</div>
+          <footer
+            style={{ fontSize: '1.4rem', color: '#677788', marginLeft: '3rem' }}
+          >
+            © Front. 2020 Htmlstream.
+          </footer>
         </div>
       </div>
     </div>

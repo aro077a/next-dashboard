@@ -1,0 +1,52 @@
+%titleProps {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: $secondaryGrey;
+}
+
+%valuesProps {
+  display: flex;
+  justify-content: center;
+  width: 4.6rem;
+  height: 1.6rem;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+}
+
+.reports-items {
+  $self: &;
+  display: grid;
+  grid-template-columns: 60% 1fr 1fr;
+  align-items: center;
+  margin-top: 2rem;
+  #{$self}__intro {
+    display: flex;
+    align-items: center;
+    svg {
+      width: 4rem;
+      height: 4rem;
+    }
+    #{$self}--title {
+      @extend %titleProps;
+    }
+  }
+  #{$self}--title,
+  #{$self}--value {
+    @extend %titleProps;
+  }
+  #{$self}--percent-high {
+    color: #00c9a7;
+    background-color: rgba(0, 201, 167, 0.1);
+    @extend %valuesProps;
+  }
+  #{$self}--percent-medium {
+    color: #ec9a3c;
+    background-color: rgba(245, 202, 153, 0.24);
+    @extend %valuesProps;
+  }
+  #{$self}--percent-low {
+    color: #ed4c78;
+    background-color: rgba(237, 76, 120, 0.1);
+    @extend %valuesProps;
+  }
+}

@@ -22,6 +22,12 @@
         width: 1.6rem;
         height: 1.6rem;
         cursor: pointer;
+        &:hover {
+          background: $secondaryHoverColor;
+          svg {
+            fill: $primaryLightBlue;
+          }
+        }
       }
     }
 

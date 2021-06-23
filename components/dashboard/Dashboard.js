@@ -5,6 +5,7 @@ import { infoData } from './dashboardInfoData';
 import DashboardInfo from './DashboardInfo';
 import DashboardUsersImport from './DashboardUsersImport';
 import DashboardReports from './DashboardReports';
+import DashboardTable from './DashboardTable';
 
 const Dashboard = () => {
   return (
@@ -38,7 +39,9 @@ const Dashboard = () => {
           <img src='/images/chart1.png' />
         </div>
       </section>
-      <section>{/* TODO table */}</section>
+      <section>
+        <DashboardTable />
+      </section>
       <section className='user-import'>
         <div className='user-chart'>
           <img src='/images/datalabel.png' />

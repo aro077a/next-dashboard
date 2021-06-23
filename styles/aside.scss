@@ -5,22 +5,22 @@
 
 .aside {
   $self: &;
-  width: 29.3rem;
+  width: 30.2rem;
   height: 100vh;
   border-right: 1px solid $primaryLightGrey;
-  padding: 1.5rem 2.8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: $secondaryWhite;
+  transition: width 0.3s ease-in-out;
   #{$self}__content {
     #{$self}__image {
       width: 10.4rem;
       height: 3.1rem;
+      margin: 1.4rem 2.8rem;
       .ddd {
         position: absolute;
         left: 40%;
@@ -37,8 +37,9 @@
   }
   &__footer {
     display: flex;
+    align-items: center;
     border-top: 1px solid $primaryLightGrey;
-    padding: 2.2rem 3.2rem 0.5rem 1.2rem;
+    padding: 1.5rem 3.2rem 1.5rem 1.2rem;
     place-content: center;
     gap: 4rem;
     #{$self}--tune {
@@ -47,8 +48,52 @@
       }
     }
     #{$self}--help {
+      .dropdown {
+        .btn-secondary {
+          background-color: unset;
+          border-color: unset;
+          box-shadow: unset;
+          cursor: pointer;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          &:hover {
+            background: $primaryWhiter;
+            border-color: unset;
+          }
+        }
+      }
+      .dropdown .show {
+        width: 20rem;
+        border-radius: 0.85rem;
+        border: 0;
+        background-color: $secondaryWhite;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        font-size: 1.3rem;
+        padding: 1.6rem 0;
+        h6 {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          color: $secondaryGrey;
+          padding: 1rem 2.4rem;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1rem;
+          padding: 1rem 2.4rem;
+          span {
+            color: $secondaryGrey;
+          }
+        }
+      }
+
       svg {
         @extend %iconProps;
+        &:hover {
+          fill: $primaryLightBlue;
+        }
       }
     }
     #{$self}--lang {
@@ -71,11 +116,7 @@
   display: flex;
   flex-direction: column;
   justify-content: unset;
-  transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
+  transition: width 0.3s ease-in-out;
   #{$self}__content {
     #{$self}__image {
       width: 3.2rem;
@@ -87,6 +128,7 @@
       }
     }
     .collapsed__header {
+      padding: 0;
       .collapsed__item {
         display: flex;
         align-items: center;

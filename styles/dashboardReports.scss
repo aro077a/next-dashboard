@@ -12,11 +12,54 @@
       font-size: 1.4rem;
       font-weight: 600;
     }
+    .dropdown {
+      .btn-secondary {
+        background-color: unset;
+        border-color: unset;
+        box-shadow: unset;
+        cursor: pointer;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        &:hover {
+          background: $primaryWhiter;
+          border-color: unset;
+        }
+      }
+    }
+    .dropdown .show {
+      width: 20rem;
+      border-radius: 0.85rem;
+      border: 0;
+      background-color: $secondaryWhite;
+      box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+      font-size: 1.3rem;
+      padding: 1.6rem 0;
+      h6 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        color: $secondaryGrey;
+        padding: 1rem 2.4rem;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 1rem 2.4rem;
+        span {
+          color: $secondaryGrey;
+        }
+      }
+    }
     svg {
       display: inline-block;
       width: 1.6rem;
       height: 1.6rem;
-      cursor: pointer;
+      color: $secondaryGrey;
+      &:hover {
+        fill: $primaryLightBlue;
+      }
     }
   }
   #{$self}__value {

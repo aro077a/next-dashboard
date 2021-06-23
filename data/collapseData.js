@@ -39,7 +39,7 @@ export const collapseData = [
       {
         id: 2,
         title: 'User Profile',
-        count: '5',
+        count: '',
         isChildCollapseAble: true,
       },
       {

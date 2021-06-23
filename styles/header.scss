@@ -10,8 +10,13 @@
   $self: &;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.8rem 3.2rem;
   border-bottom: 1px solid $primaryLightGrey;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: $secondaryWhite;
   #{$self}__searchContent {
     display: flex;
     align-items: center;
@@ -79,10 +84,48 @@
       }
     }
     #{$self}__profile {
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 5rem;
+      height: 5rem;
       border-radius: 50%;
       cursor: pointer;
+      .dropdown {
+        .btn-secondary {
+          background-color: unset;
+          border-color: unset;
+          box-shadow: unset;
+          cursor: pointer;
+
+          &:hover {
+            background: $primaryWhiter;
+            border-color: unset;
+          }
+        }
+      }
+      .dropdown .show {
+        width: 20rem;
+        border-radius: 0.85rem;
+        border: 0;
+        background-color: $secondaryWhite;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        font-size: 1.3rem;
+        padding: 1.6rem 0;
+        h6 {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          color: $secondaryGrey;
+          padding: 1rem 2.4rem;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1rem;
+          padding: 1rem 2.4rem;
+          span {
+            color: $secondaryGrey;
+          }
+        }
+      }
       &:hover {
         background: $secondaryHoverColor;
       }

@@ -3,13 +3,50 @@ import { MdOpenInNew } from 'react-icons/md';
 import Title from '../title/Title';
 import Button from '../button/Button';
 import { userImportData } from './dashboardInfoData';
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
+import { CgShare } from 'react-icons/cg';
+import { IoMdDownload } from 'react-icons/io';
+import { BiChat } from 'react-icons/bi';
+import { BsAlt } from 'react-icons/bs';
+import useDropdown from '../../hooks/useDropdown';
 
 const DashboardUsersImport = () => {
+  const [dropdownOpen, toggleDropdown] = useDropdown();
+
   return (
     <div className='user-import__main'>
       <div className='user-import__header'>
         <Title title='Import data into Front Dashboard' />
-        <BiDotsVerticalRounded />
+        <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
+          <DropdownToggle caret>
+            <BiDotsVerticalRounded onClick={toggleDropdown} />
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>Settings</DropdownItem>
+            <DropdownItem>
+              <CgShare /> <span>Share chart</span>
+            </DropdownItem>
+            <DropdownItem>
+              <IoMdDownload />
+              <span>Download</span>
+            </DropdownItem>
+            <DropdownItem>
+              <BsAlt />
+              <span>Connect other apps</span>
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem header>Feedback</DropdownItem>
+            <DropdownItem>
+              <BiChat />
+              <span>Report</span>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </div>
       <div className='user-import__desc'>
         <p className='user-import--info'>

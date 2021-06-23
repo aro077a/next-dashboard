@@ -22,8 +22,8 @@
     border-top: 1px solid $primaryLightGrey;
   }
   h4 {
-    margin-top: 2.5rem;
     font-size: 1.2rem;
+    margin: 2.5rem 0 0 3.1rem;
     text-transform: uppercase;
     color: $secondaryGrey;
   }
@@ -31,11 +31,13 @@
     #{$self}__subChild {
       display: flex;
       justify-content: space-between;
-      margin-top: 3rem;
+      margin-top: 1.5rem;
       cursor: pointer;
       #{$self}__subItem {
         display: flex;
+        width: 100%;
         justify-content: space-between;
+        padding: 0 3rem 0 8rem;
         #{$self}__item {
           font-size: 1.4rem;
         }
@@ -55,6 +57,7 @@
     justify-content: space-between;
     margin-top: 3rem;
     cursor: pointer;
+    padding: 0 3rem;
 
     #{$self}__item {
       @extend %itemOpenProps;
@@ -97,6 +100,9 @@
       height: 1.6rem;
       transition: 0.4s ease;
       transform: rotate(180deg);
+      path {
+        fill: $primaryLightBlue;
+      }
     }
     #{$self}--close {
       width: 1.6rem;

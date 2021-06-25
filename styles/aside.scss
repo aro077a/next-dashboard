@@ -42,6 +42,9 @@
     padding: 1.5rem 3.2rem 1.5rem 1.2rem;
     place-content: center;
     gap: 4rem;
+    position: sticky;
+    bottom: 0;
+    background: $secondaryWhite;
     #{$self}--tune {
       svg {
         @extend %iconProps;
@@ -113,6 +116,9 @@
   height: 100vh;
   border-right: 1px solid $primaryLightGrey;
   padding: 1.5rem 2.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: unset;

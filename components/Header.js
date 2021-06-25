@@ -8,14 +8,29 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import { CgShare } from 'react-icons/cg';
-import { IoMdDownload } from 'react-icons/io';
-import {} from 'react-icons/bi';
-import { BsAlt } from 'react-icons/bs';
+import { MdKeyboardArrowDown, MdOpenInNew } from 'react-icons/md';
 import useDropdown from '../hooks/useDropdown';
+import { useState } from 'react';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
+  const [isStatusHovered, setIsStatusHovered] = useState(false);
+  const [isCustHovered, setIsCustHovered] = useState(false);
+
+  const mouseStatusEnter = () => {
+    setIsStatusHovered(!isStatusHovered);
+  };
+
+  const mouseStatusLeave = () => {
+    setIsStatusHovered(false);
+  };
+  const mouseSCustEnter = () => {
+    setIsCustHovered(!isStatusHovered);
+  };
+
+  const mouseCustLeave = () => {
+    setIsCustHovered(false);
+  };
   return (
     <header className='header'>
       <div className='header__searchContent'>
@@ -48,17 +63,35 @@ const Header = ({ openMenu, setOpenMenu }) => {
               <img src='/images/img6.jpg' alt='' onClick={toggleDropdown} />
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem header>
-                <div>
-                  <img src='/images/img6.jpg' alt='' />
-                  <p></p>
-                  <p></p>
+              <DropdownItem disabled className='header__user-container'>
+                <div className='header__user'>
+                  <div className='header__user-image'>
+                    <img src='/images/img6.jpg' alt='' />
+                  </div>
+                  <div className='header__user-info'>
+                    <p className='header--user-name'>Mark Williams</p>
+                    <p className='header--user-email'>mark@example.com</p>
+                  </div>
                 </div>
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>
-                <span>Set status</span>
+              <DropdownItem
+                onMouseEnter={mouseStatusEnter}
+                onMouseLeave={mouseStatusLeave}
+              >
+                <div className='arrow'>
+                  <span>Set status</span>
+                  <MdKeyboardArrowDown className='is-open' />
+                </div>
               </DropdownItem>
+              <div className={isStatusHovered ? 'open' : 'close'}>
+                <ul className='open__status'>
+                  <li>Available</li>
+                  <li>Busy</li>
+                  <li>Away</li>
+                </ul>
+                <p className='open--reset'>Reset status</p>
+              </div>
               <DropdownItem>
                 <span>Profile and account</span>
               </DropdownItem>
@@ -67,16 +100,37 @@ const Header = ({ openMenu, setOpenMenu }) => {
               </DropdownItem>
               <DropdownItem divider />
               <DropdownItem>
-                <div>
-                  <div></div>
-                  <p></p>
-                  <p></p>
+                <div className='header__pro-user'>
+                  <div className='header__pro-user-info'>HS</div>
+                  <div className='header__pro-user-profile'>
+                    <p className='header--pro-user-name'>
+                      Htmlstream <span>PRO</span>
+                    </p>
+                    <p className='header--pro-user-email'>hs.example.com</p>
+                  </div>
                 </div>
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>
-                <span>Customization</span>
+              <DropdownItem
+                onMouseEnter={mouseSCustEnter}
+                onMouseLeave={mouseCustLeave}
+              >
+                <div className='arrow'>
+                  <span>Customization</span>
+                  <MdKeyboardArrowDown className='is-open' />
+                </div>
               </DropdownItem>
+              <div className={isCustHovered ? 'open-cust' : 'close'}>
+                <ul className='open__cust-content'>
+                  <li>Invite people </li>
+                  <li>
+                    Analytics <MdOpenInNew />
+                  </li>
+                  <li>
+                    Customize front <MdOpenInNew />
+                  </li>
+                </ul>
+              </div>
               <DropdownItem>
                 <span>Manage team</span>
               </DropdownItem>

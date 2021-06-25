@@ -39,7 +39,7 @@ const Dashboard = () => {
           <img src='/images/chart1.png' />
         </div>
       </section>
-      <section>
+      <section className='dashboard-table'>
         <DashboardTable />
       </section>
       <section className='user-import'>

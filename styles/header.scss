@@ -88,6 +88,72 @@
       height: 5rem;
       border-radius: 50%;
       cursor: pointer;
+      position: relative;
+      .open {
+        display: block;
+        position: absolute;
+        top: 20%;
+        left: -62%;
+        width: 15rem;
+        background-color: $secondaryWhite;
+        border-radius: 1rem;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        .open__status {
+          display: flex;
+          flex-direction: column;
+          padding-top: 1rem;
+          font-size: 1.3rem;
+          color: $secondaryTextBlack;
+          li {
+            margin: 1rem 2.4rem 0.5rem 2.4rem;
+          }
+        }
+        .open--reset {
+          padding: 2.4rem;
+          font-size: 1.3rem;
+          color: $secondaryTextBlack;
+          border-top: 1px solid $primaryLightGrey;
+        }
+
+        .open--reset {
+          padding: 2.4rem;
+          font-size: 1.3rem;
+          color: $secondaryTextBlack;
+          border-top: 1px solid $primaryLightGrey;
+        }
+      }
+      .open-cust {
+        display: block;
+        position: absolute;
+        top: 37%;
+        left: -82%;
+        width: 15rem;
+        background-color: $secondaryWhite;
+        border-radius: 1rem;
+        padding: 1rem 0;
+        width: 20rem;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        li {
+          margin: 1rem 2.4rem 0.5rem 2.4rem;
+          font-size: 1.4rem;
+        }
+      }
+      .close {
+        display: none;
+      }
+      .close-cust {
+        display: none;
+      }
+      .arrow {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .is-open {
+        width: 1.6rem;
+        height: 1.6rem;
+        transform: rotate(-90deg);
+      }
       .dropdown {
         .btn-secondary {
           background-color: unset;
@@ -102,7 +168,7 @@
         }
       }
       .dropdown .show {
-        width: 20rem;
+        width: 26rem;
         border-radius: 0.85rem;
         border: 0;
         background-color: $secondaryWhite;
@@ -122,7 +188,7 @@
           gap: 1rem;
           padding: 1rem 2.4rem;
           span {
-            color: $secondaryGrey;
+            color: $secondaryTextBlack;
           }
         }
       }
@@ -134,6 +200,70 @@
         height: 100%;
         object-fit: contain;
         clip-path: circle(50% at 50% 50%);
+      }
+      .header__user-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between !important;
+        gap: 1rem;
+        .header__user {
+          display: flex;
+          gap: 1rem;
+          .header__user-image {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+          .header__user-info {
+            .header--user-name {
+              font-size: 1.4rem;
+              color: $secondaryTextBlack;
+              text-transform: capitalize;
+              font-weight: 600;
+            }
+            .header--user-email {
+              font-size: 1.4rem;
+              color: $secondaryGrey;
+              text-transform: lowercase;
+            }
+          }
+        }
+      }
+      .header__pro-user {
+        display: flex;
+        gap: 1rem;
+        .header__pro-user-info {
+          width: 3.5rem;
+          height: 3.5rem;
+          background: $secondaryTextBlack;
+          color: $secondaryWhite;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+        .header__pro-user-profile {
+          .header--pro-user-name {
+            font-size: 1.4rem;
+            color: $secondaryTextBlack;
+            text-transform: capitalize;
+            font-weight: 600;
+            span {
+              display: inline-block;
+              color: $secondaryWhite;
+              background: $primaryLightBlue;
+              border-radius: 10rem;
+              font-size: 1rem;
+              padding: 0 0.5rem;
+            }
+          }
+          .header--pro-user-email {
+            font-size: 1.4rem;
+            color: $secondaryGrey;
+            text-transform: lowercase;
+          }
+        }
       }
     }
   }

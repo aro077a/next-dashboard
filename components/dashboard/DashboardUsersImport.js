@@ -26,7 +26,7 @@ const DashboardUsersImport = () => {
           <DropdownToggle caret>
             <BiDotsVerticalRounded onClick={toggleDropdown} />
           </DropdownToggle>
-          <DropdownMenu>
+          <DropdownMenu right>
             <DropdownItem header>Settings</DropdownItem>
             <DropdownItem>
               <CgShare /> <span>Share chart</span>

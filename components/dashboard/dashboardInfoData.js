@@ -3,7 +3,7 @@ export const infoData = [
     id: 1,
     title: 'total users',
     total: '72,540',
-    high: '12.5%',
+    high: '2.5%',
     low: null,
     from: '70,104',
     initial: null,

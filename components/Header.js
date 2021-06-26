@@ -13,6 +13,7 @@ import { MdKeyboardArrowDown, MdOpenInNew } from 'react-icons/md';
 import useDropdown from '../hooks/useDropdown';
 import { useState } from 'react';
 import useCollapse from '../hooks/useCollapse';
+import DashboardTabs from './tabs/DashboardTabs';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
@@ -87,19 +88,7 @@ const Header = ({ openMenu, setOpenMenu }) => {
               <DropdownItem header>
                 Notifications <BiDotsVerticalRounded />
               </DropdownItem>
-
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
+              <DashboardTabs />
             </DropdownMenu>
           </Dropdown>
         </div>

@@ -16,8 +16,9 @@
     border-radius: 0.75rem;
     padding: 2.1rem;
     cursor: pointer;
+    box-shadow: 0 6px 12px rgb(140 152 164 / 8%);
     &:hover {
-      box-shadow: 0 6px 12px rgba(140, 152, 164, 0.25);
+      box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
       transition: 0.3s;
     }
     #{$self}__content {

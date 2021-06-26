@@ -34,16 +34,16 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1,
+//     width: '100%',
+//     backgroundColor: theme.palette.background.paper,
+//   },
+// }));
 
 export default function DashboardTabs() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -75,7 +75,7 @@ export default function DashboardTabs() {
     <TabItems />,
   ];
   return (
-    <div className={classes.root}>
+    <div className=''>
       <AppBar position='static' color='default'>
         <Tabs
           value={value}

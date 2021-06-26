@@ -1,17 +1,16 @@
 import { Drawer } from 'antd';
 
-const LeftBar = ({ visible, openLeftBar }) => {
+const LeftBar = ({ visible, openLeftBar, children, className, title }) => {
   return (
     <Drawer
-      title='Basic Drawer'
+      title={title}
       placement='right'
-      closable={false}
+      closable={true}
       onClose={openLeftBar}
       visible={visible}
+      className={className}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      {children}
     </Drawer>
   );
 };

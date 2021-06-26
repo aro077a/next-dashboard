@@ -21,6 +21,7 @@ import DashboardTabs from './tabs/DashboardTabs';
 import { appsData } from './dashboard/dashboardInfoData';
 import LeftBar from './leftbar/LeftBar';
 import useLeftBar from '../hooks/useLeftBar';
+import Activity from './leftbar/Activity';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
@@ -129,9 +130,16 @@ const Header = ({ openMenu, setOpenMenu }) => {
             </DropdownMenu>
           </Dropdown>
         </div>
-        <div className='header--icon'>
-          <BiPulse onClick={openLeftBar} />
-          <LeftBar visible={visible} openLeftBar={openLeftBar} />
+        <div className='header--icon' onClick={openLeftBar}>
+          <BiPulse />
+          <LeftBar
+            visible={visible}
+            openLeftBar={openLeftBar}
+            className='activity__leftBar'
+            title='Activity stream'
+          >
+            <Activity />
+          </LeftBar>
         </div>
         <div className='header__profile'>
           <Dropdown

@@ -1,7 +1,11 @@
 import { BsDot } from 'react-icons/bs';
 import { RiCommandLine } from 'react-icons/ri';
+import useLeftBar from '../hooks/useLeftBar';
+import KeyboardShortcuts from './leftbar/KeyboardShortcuts';
+import LeftBar from './leftbar/LeftBar';
 
 const Footer = () => {
+  const [visible, openLeftBar] = useLeftBar();
   return (
     <footer className='footer'>
       <div className='footer--info'>
@@ -16,8 +20,16 @@ const Footer = () => {
           <p>License</p>
           <BsDot />
         </div>
-        <div className='footer--command'>
+        <div className='footer--command' onClick={openLeftBar}>
           <RiCommandLine />
+          <LeftBar
+            visible={visible}
+            openLeftBar={openLeftBar}
+            className='shortcut__leftBar'
+            title='Keyboard shortcuts'
+          >
+            <KeyboardShortcuts />
+          </LeftBar>
         </div>
       </div>
     </footer>

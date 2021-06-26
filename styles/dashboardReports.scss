@@ -6,6 +6,7 @@
   #{$self}__header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid $primaryLightGrey;
     padding: 1.5rem 0 2rem 0;
     h4 {
@@ -13,7 +14,7 @@
       font-weight: 600;
     }
     .dropdown {
-      .btn-secondary {
+      .reports-button {
         background-color: unset;
         border-color: unset;
         box-shadow: unset;
@@ -24,6 +25,9 @@
         &:hover {
           background: $primaryWhiter;
           border-color: unset;
+        }
+        &::after {
+          content: none;
         }
       }
     }

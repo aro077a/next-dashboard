@@ -23,7 +23,7 @@ const DashboardReports = () => {
       <div className='reports__header'>
         <Title title='Reports overview' />
         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-          <DropdownToggle caret>
+          <DropdownToggle caret className='reports-button'>
             <BiDotsVerticalRounded onClick={toggleDropdown} />
           </DropdownToggle>
           <DropdownMenu right>

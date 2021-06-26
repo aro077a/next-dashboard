@@ -35,24 +35,38 @@
       }
     }
   }
+
   &__footer {
     display: flex;
     align-items: center;
     border-top: 1px solid $primaryLightGrey;
     padding: 1.5rem 3.2rem 1.5rem 1.2rem;
-    place-content: center;
-    gap: 4rem;
     position: sticky;
     bottom: 0;
     background: $secondaryWhite;
+    justify-content: center;
+    gap: 1.5rem;
     #{$self}--tune {
+      cursor: pointer;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background: rgba(55, 125, 255, 0.1);
+        svg {
+          fill: $primaryLightBlue;
+        }
+      }
       svg {
         @extend %iconProps;
       }
     }
     #{$self}--help {
       .dropdown {
-        .btn-secondary {
+        .aside--button {
           background-color: unset;
           border-color: unset;
           box-shadow: unset;
@@ -61,8 +75,13 @@
           height: 4rem;
           border-radius: 50%;
           &:hover {
-            background: $primaryWhiter;
-            border-color: unset;
+            background: rgba(55, 125, 255, 0.1);
+            svg {
+              fill: $primaryLightBlue;
+            }
+          }
+          &::after {
+            content: none;
           }
         }
       }
@@ -74,6 +93,7 @@
         box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
         font-size: 1.3rem;
         padding: 1.6rem 0;
+        top: -2rem !important;
         h6 {
           font-size: 1.1rem;
           text-transform: uppercase;
@@ -99,13 +119,65 @@
         }
       }
     }
+
     #{$self}--lang {
-      @extend %iconProps;
       img {
-        width: 100%;
-        height: 100%;
+        width: 1.7rem;
+        height: 1.7rem;
         object-fit: contain;
         clip-path: circle(50% at 50% 50%);
+      }
+      .dropdown {
+        .aside--lang-button {
+          background-color: unset;
+          border-color: unset;
+          box-shadow: unset;
+          cursor: pointer;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          &:hover {
+            background: rgba(55, 125, 255, 0.1);
+            svg {
+              fill: $primaryLightBlue;
+            }
+          }
+          &::after {
+            content: none;
+          }
+        }
+      }
+      .dropdown .show {
+        width: 20rem;
+        border-radius: 0.85rem;
+        border: 0;
+        background-color: $secondaryWhite;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        font-size: 1.3rem;
+        padding: 1.6rem 0;
+        top: -2rem !important;
+        h6 {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          color: $secondaryGrey;
+          padding: 1rem 2.4rem;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1rem;
+          padding: 1rem 2.4rem;
+          span {
+            color: $secondaryGrey;
+          }
+        }
+      }
+
+      svg {
+        &:hover {
+          fill: $primaryLightBlue;
+        }
       }
     }
   }
@@ -115,7 +187,6 @@
   width: 8.4rem;
   height: 100vh;
   border-right: 1px solid $primaryLightGrey;
-  padding: 1.5rem 2.8rem;
   position: sticky;
   top: 0;
   z-index: 99;
@@ -124,9 +195,11 @@
   justify-content: unset;
   transition: width 0.3s ease-in-out;
   #{$self}__content {
+    margin: 0 auto;
     #{$self}__image {
       width: 3.2rem;
       height: 3rem;
+      margin: 1.5rem 0 0 0.8rem;
       img {
         width: 100%;
         height: 100%;
@@ -166,8 +239,7 @@
     border-top: 1px solid $primaryLightGrey;
     flex-direction: column;
     margin-top: 2rem;
-    padding: 2.2rem 3.2rem 0.5rem 1.2rem;
+    padding: 2.2rem;
     place-content: center;
-    gap: 4rem;
   }
 }

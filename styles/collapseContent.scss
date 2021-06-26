@@ -17,10 +17,6 @@
 
 .collapsed {
   $self: &;
-  &:nth-child(7) {
-    margin-top: 2rem;
-    border-top: 1px solid $primaryLightGrey;
-  }
   h4 {
     font-size: 1.2rem;
     margin: 2.5rem 0 0 3.1rem;
@@ -57,7 +53,7 @@
     justify-content: space-between;
     margin-top: 3rem;
     cursor: pointer;
-    padding: 0 3rem;
+    padding: 0 2rem;
 
     #{$self}__item {
       @extend %itemOpenProps;

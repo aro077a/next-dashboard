@@ -1,21 +1,33 @@
-import { BiBell, BiPulse, BiSearch, BiChat } from 'react-icons/bi';
+import { BiBell, BiPulse, BiSearch } from 'react-icons/bi';
 import { RiApps2Line } from 'react-icons/ri';
 import { GrFormClose } from 'react-icons/gr';
-import { BiArrowToLeft } from 'react-icons/bi';
+import { BiArrowToLeft, BiDotsVerticalRounded } from 'react-icons/bi';
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Tooltip,
 } from 'reactstrap';
 import { MdKeyboardArrowDown, MdOpenInNew } from 'react-icons/md';
 import useDropdown from '../hooks/useDropdown';
 import { useState } from 'react';
+import useCollapse from '../hooks/useCollapse';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
+  const [notifications, setNotifications] = useState();
+  const [toggleApps, setToggleApps] = useState();
+  const [isOpen, toggleCollapse] = useCollapse();
   const [isStatusHovered, setIsStatusHovered] = useState(false);
   const [isCustHovered, setIsCustHovered] = useState(false);
+
+  const toggleOpenApps = () => {
+    setToggleApps(!toggleApps);
+  };
+  const toggleNotifications = () => {
+    setNotifications(!notifications);
+  };
 
   const mouseStatusEnter = () => {
     setIsStatusHovered(!isStatusHovered);
@@ -34,7 +46,24 @@ const Header = ({ openMenu, setOpenMenu }) => {
   return (
     <header className='header'>
       <div className='header__searchContent'>
-        <BiArrowToLeft onClick={() => setOpenMenu(!openMenu)} />
+        <BiArrowToLeft
+          onClick={() => setOpenMenu(!openMenu)}
+          id='TooltipExample'
+        />
+        <Tooltip
+          placement='right'
+          isOpen={isOpen}
+          target='TooltipExample'
+          toggle={toggleCollapse}
+          style={{
+            background: '#132144',
+            width: '8rem',
+            fontSize: '1.4rem',
+            marginLeft: '0.5rem',
+          }}
+        >
+          Collapse
+        </Tooltip>
         <div className='header__search'>
           <div className='header__searchbox'>
             <BiSearch />
@@ -49,18 +78,68 @@ const Header = ({ openMenu, setOpenMenu }) => {
       </div>
       <div className='header__icons'>
         <div className='header--icon'>
-          <BiBell />
+          <Dropdown isOpen={notifications} toggle={toggleNotifications}>
+            <DropdownToggle caret className='notifications'>
+              <BiBell onClick={toggleNotifications} />
+              <div className='header--icon-badge'></div>
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem header>
+                Notifications <BiDotsVerticalRounded />
+              </DropdownItem>
+
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
         <div className='header--icon'>
-          <RiApps2Line />
+          <Dropdown isOpen={toggleApps} toggle={toggleOpenApps}>
+            <DropdownToggle caret className='apps'>
+              <RiApps2Line onClick={toggleOpenApps} />
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem header>
+                Web apps & services <BiDotsVerticalRounded />
+              </DropdownItem>
+
+              <DropdownItem>
+                <span>Downloadeeeee</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+              <DropdownItem>
+                <span>Download</span>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
         <div className='header--icon'>
           <BiPulse />
         </div>
         <div className='header__profile'>
-          <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-            <DropdownToggle caret>
+          <Dropdown
+            isOpen={dropdownOpen}
+            toggle={toggleDropdown}
+            setActiveFromChild={true}
+          >
+            <DropdownToggle caret className='header__profile-button'>
               <img src='/images/img6.jpg' alt='' onClick={toggleDropdown} />
+              <div className='header__status-icon'></div>
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem disabled className='header__user-container'>
@@ -75,16 +154,16 @@ const Header = ({ openMenu, setOpenMenu }) => {
                 </div>
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem
-                onMouseEnter={mouseStatusEnter}
-                onMouseLeave={mouseStatusLeave}
-              >
+              <DropdownItem onMouseEnter={mouseStatusEnter}>
                 <div className='arrow'>
                   <span>Set status</span>
                   <MdKeyboardArrowDown className='is-open' />
                 </div>
               </DropdownItem>
-              <div className={isStatusHovered ? 'open' : 'close'}>
+              <div
+                className={isStatusHovered ? 'open' : 'close'}
+                onMouseLeave={mouseStatusLeave}
+              >
                 <ul className='open__status'>
                   <li>Available</li>
                   <li>Busy</li>
@@ -111,16 +190,16 @@ const Header = ({ openMenu, setOpenMenu }) => {
                 </div>
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem
-                onMouseEnter={mouseSCustEnter}
-                onMouseLeave={mouseCustLeave}
-              >
+              <DropdownItem onMouseEnter={mouseSCustEnter}>
                 <div className='arrow'>
                   <span>Customization</span>
                   <MdKeyboardArrowDown className='is-open' />
                 </div>
               </DropdownItem>
-              <div className={isCustHovered ? 'open-cust' : 'close'}>
+              <div
+                className={isCustHovered ? 'open-cust' : 'close'}
+                onMouseLeave={mouseCustLeave}
+              >
                 <ul className='open__cust-content'>
                   <li>Invite people </li>
                   <li>

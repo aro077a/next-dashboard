@@ -23,7 +23,7 @@ const DashboardUsersImport = () => {
       <div className='user-import__header'>
         <Title title='Import data into Front Dashboard' />
         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-          <DropdownToggle caret>
+          <DropdownToggle caret className='user-import-button'>
             <BiDotsVerticalRounded onClick={toggleDropdown} />
           </DropdownToggle>
           <DropdownMenu right>

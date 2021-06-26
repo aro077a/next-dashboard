@@ -12,9 +12,15 @@ import { MdTune } from 'react-icons/md';
 import { BsAlt } from 'react-icons/bs';
 import { AiOutlineGift } from 'react-icons/ai';
 import useDropdown from '../hooks/useDropdown';
+import { useState } from 'react';
 
 const Aside = ({ openMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
+  const [openLang, setOpenLang] = useState(false);
+
+  const toggleDropdownContent = () => {
+    setOpenLang(!openLang);
+  };
 
   return (
     <aside className={openMenu ? 'asideClosed' : 'aside '}>
@@ -48,7 +54,7 @@ const Aside = ({ openMenu }) => {
         </div>
         <div className='aside--help'>
           <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-            <DropdownToggle caret>
+            <DropdownToggle caret className='aside--button'>
               <BiHelpCircle onClick={toggleDropdown} />
             </DropdownToggle>
             <DropdownMenu>
@@ -78,7 +84,32 @@ const Aside = ({ openMenu }) => {
           </Dropdown>
         </div>
         <div className='aside--lang'>
-          <img src='/icons/us.svg' />
+          <Dropdown isOpen={openLang} toggle={toggleDropdownContent}>
+            <DropdownToggle caret className='aside--lang-button'>
+              <img src='/icons/us.svg' onClick={toggleDropdownContent} />
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem header>select language</DropdownItem>
+              <DropdownItem>
+                <img src='/icons/1.svg' alt='us' /> <span>English (US)</span>
+              </DropdownItem>
+              <DropdownItem>
+                <img src='/icons/2.svg' alt='uk' /> <span>England (UK)</span>
+              </DropdownItem>
+              <DropdownItem>
+                <img src='/icons/3.svg' alt='du' /> <span>Deutsch</span>
+              </DropdownItem>
+              <DropdownItem>
+                <img src='/icons/4.svg' alt='dn' /> <span>Dansk</span>
+              </DropdownItem>
+              <DropdownItem>
+                <img src='/icons/5.svg' alt='it' /> <span>Italiano</span>
+              </DropdownItem>
+              <DropdownItem>
+                <img src='/icons/6.svg' alt='cn' /> <span>Chinese</span>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
       </section>
     </aside>

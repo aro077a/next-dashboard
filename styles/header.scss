@@ -21,8 +21,19 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+
+    .tooltip-inner {
+      width: 4rem;
+      background-color: red;
+    }
     svg {
       @extend %iconProps;
+      &:hover {
+        fill: $primaryLightBlue;
+      }
+      &:focus {
+        outline: none;
+      }
     }
     #{$self}__search {
       width: 36rem;
@@ -73,14 +84,72 @@
       justify-content: center;
       align-items: center;
       border-radius: 50%;
+      position: relative;
       &:hover {
-        background: $secondaryHoverColor;
+        background: rgba(55, 125, 255, 0.1);
         svg {
           fill: $primaryLightBlue;
         }
       }
       svg {
         @extend %iconProps;
+      }
+      .dropdown {
+        .notifications,
+        .apps {
+          background-color: unset;
+          border-color: unset;
+          box-shadow: unset;
+          cursor: pointer;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          &:hover {
+            background: rgba(55, 125, 255, 0.1);
+            svg {
+              fill: $primaryLightBlue;
+            }
+          }
+          &::after {
+            content: none;
+          }
+        }
+      }
+      .dropdown .show {
+        width: 20rem;
+        border-radius: 0.85rem;
+        border: 0;
+        background-color: $secondaryWhite;
+        box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
+        font-size: 1.3rem;
+        padding: 1.6rem 0;
+        top: 2rem !important;
+        h6 {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          color: $secondaryGrey;
+          padding: 1rem 2.4rem;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1rem;
+          padding: 1rem 2.4rem;
+          span {
+            color: $secondaryGrey;
+          }
+        }
+      }
+      #{$self}--icon-badge {
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: $primaryPink;
+        border: 2px solid $secondaryWhite;
+        border-radius: 50%;
+        position: absolute;
+        right: 0%;
+        top: 0%;
       }
     }
     #{$self}__profile {
@@ -155,15 +224,38 @@
         transform: rotate(-90deg);
       }
       .dropdown {
-        .btn-secondary {
+        .header__profile-button {
           background-color: unset;
           border-color: unset;
           box-shadow: unset;
-          cursor: pointer;
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:after {
+            content: none;
+          }
 
           &:hover {
-            background: $primaryWhiter;
-            border-color: unset;
+            background-color: rgba(55, 125, 255, 0.1);
+          }
+          img {
+            width: 3.5rem;
+            height: 3.5rem;
+            object-fit: contain;
+            position: relative;
+          }
+          .header__status-icon {
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: $primaryGreen;
+            border: 2px solid $secondaryWhite;
+            border-radius: 50%;
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
           }
         }
       }
@@ -174,32 +266,22 @@
         background-color: $secondaryWhite;
         box-shadow: 0 10px 40px 10px rgb(140 152 164 / 18%);
         font-size: 1.3rem;
-        padding: 1.6rem 0;
+        padding: 2rem;
         h6 {
           font-size: 1.1rem;
           text-transform: uppercase;
           color: $secondaryGrey;
           padding: 1rem 2.4rem;
         }
-        button {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 1rem;
-          padding: 1rem 2.4rem;
-          span {
-            color: $secondaryTextBlack;
-          }
-        }
-      }
-      &:hover {
-        background: $secondaryHoverColor;
       }
       img {
-        width: 100%;
-        height: 100%;
+        width: 3.5rem;
+        height: 3.5rem;
         object-fit: contain;
         clip-path: circle(50% at 50% 50%);
+      }
+      .dropdown-item {
+        padding: 1rem;
       }
       .header__user-container {
         display: flex;
@@ -208,6 +290,7 @@
         gap: 1rem;
         .header__user {
           display: flex;
+          align-items: center;
           gap: 1rem;
           .header__user-image {
             width: 3.5rem;
@@ -230,6 +313,7 @@
       }
       .header__pro-user {
         display: flex;
+        align-items: center;
         gap: 1rem;
         .header__pro-user-info {
           width: 3.5rem;

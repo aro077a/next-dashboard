@@ -1,0 +1,65 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3.2rem 3rem 3.2rem;
+  $self: &;
+  #{$self}--info {
+    font-size: 1.3rem;
+    color: $secondaryGrey;
+  }
+  #{$self}__options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    #{$self}__faq {
+      font-size: 1.4rem;
+      color: $secondaryGrey;
+      display: flex;
+      cursor: pointer;
+      &:hover {
+        color: $secondaryLinkHover;
+      }
+      svg {
+        fill: $secondaryGrey;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+    #{$self}--license {
+      font-size: 1.4rem;
+      color: $secondaryGrey;
+      display: flex;
+      cursor: pointer;
+      &:hover {
+        color: $secondaryLinkHover;
+      }
+      svg {
+        fill: $secondaryGrey;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+  #{$self}--command {
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    &:hover {
+      background: rgba(55, 125, 255, 0.1);
+      svg {
+        fill: $primaryLightBlue;
+      }
+    }
+    svg {
+      fill: $secondaryGrey;
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+}

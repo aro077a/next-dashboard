@@ -37,16 +37,20 @@
   #{$self}--percent-high {
     color: #00c9a7;
     background-color: rgba(0, 201, 167, 0.1);
+    font-size: 1.1rem;
+
     @extend %valuesProps;
   }
   #{$self}--percent-medium {
     color: #ec9a3c;
     background-color: rgba(245, 202, 153, 0.24);
+    font-size: 1.1rem;
     @extend %valuesProps;
   }
   #{$self}--percent-low {
     color: #ed4c78;
     background-color: rgba(237, 76, 120, 0.1);
+    font-size: 1.1rem;
     @extend %valuesProps;
   }
 }

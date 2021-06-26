@@ -9,11 +9,16 @@ import {
   DropdownItem,
   Tooltip,
 } from 'reactstrap';
-import { MdKeyboardArrowDown, MdOpenInNew } from 'react-icons/md';
+import {
+  MdKeyboardArrowDown,
+  MdOpenInNew,
+  MdKeyboardArrowRight,
+} from 'react-icons/md';
 import useDropdown from '../hooks/useDropdown';
 import { useState } from 'react';
 import useCollapse from '../hooks/useCollapse';
 import DashboardTabs from './tabs/DashboardTabs';
+import { appsData } from './dashboard/dashboardInfoData';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
@@ -92,28 +97,32 @@ const Header = ({ openMenu, setOpenMenu }) => {
             </DropdownMenu>
           </Dropdown>
         </div>
-        <div className='header--icon'>
+        <div className='header--iconApp'>
           <Dropdown isOpen={toggleApps} toggle={toggleOpenApps}>
             <DropdownToggle caret className='apps'>
               <RiApps2Line onClick={toggleOpenApps} />
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem header>
-                Web apps & services <BiDotsVerticalRounded />
-              </DropdownItem>
-
-              <DropdownItem>
-                <span>Downloadeeeee</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
-              <DropdownItem>
-                <span>Download</span>
-              </DropdownItem>
+              <DropdownItem header>Web apps & services</DropdownItem>
+              <DropdownItem divider />
+              <div className='app-wrapper'>
+                {appsData.map((app) => {
+                  return (
+                    <DropdownItem className='app' key={app.id}>
+                      <div className='app-image'>
+                        <img src={app.img} alt='' />
+                      </div>
+                      <div className='app-info'>
+                        <p className='app-name'>{app.title}</p>
+                        <p className='app-text'>{app.info}</p>
+                      </div>
+                    </DropdownItem>
+                  );
+                })}
+              </div>
+              <p className='all-apps'>
+                View all apps <MdKeyboardArrowRight />
+              </p>
             </DropdownMenu>
           </Dropdown>
         </div>

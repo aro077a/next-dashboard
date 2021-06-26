@@ -92,3 +92,47 @@ export const reportsData = [
     low: null,
   },
 ];
+export const appsData = [
+  {
+    id: 1,
+    title: 'Atlassian',
+    titleBadge: null,
+    img: '/icons/atlassian.svg',
+    info: 'Security and control across Cloud',
+  },
+  {
+    id: 2,
+    title: 'Slack',
+    titleBadge: 'TRY',
+    img: '/icons/slack.svg',
+    info: 'Email collaboration software',
+  },
+  {
+    id: 3,
+    title: 'Google webdev',
+    titleBadge: null,
+    img: '/icons/google-webdev.svg',
+    info: 'Work involved in developing a website',
+  },
+  {
+    id: 4,
+    title: 'Frontapp',
+    titleBadge: null,
+    img: '/icons/frontapp.svg',
+    info: 'The inbox for teams',
+  },
+  {
+    id: 5,
+    title: 'HS Support',
+    titleBadge: null,
+    img: '/icons/review-rating-shield.svg',
+    info: 'Customer service and support',
+  },
+  {
+    id: 6,
+    title: 'More front products',
+    titleBadge: null,
+    img: '/icons/review-rating-shield.svg',
+    info: 'Customer service and support',
+  },
+];

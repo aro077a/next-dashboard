@@ -19,9 +19,12 @@ import { useState } from 'react';
 import useCollapse from '../hooks/useCollapse';
 import DashboardTabs from './tabs/DashboardTabs';
 import { appsData } from './dashboard/dashboardInfoData';
+import LeftBar from './leftbar/LeftBar';
+import useLeftBar from '../hooks/useLeftBar';
 
 const Header = ({ openMenu, setOpenMenu }) => {
   const [dropdownOpen, toggleDropdown] = useDropdown();
+  const [visible, openLeftBar] = useLeftBar();
   const [notifications, setNotifications] = useState();
   const [toggleApps, setToggleApps] = useState();
   const [isOpen, toggleCollapse] = useCollapse();
@@ -127,7 +130,8 @@ const Header = ({ openMenu, setOpenMenu }) => {
           </Dropdown>
         </div>
         <div className='header--icon'>
-          <BiPulse />
+          <BiPulse onClick={openLeftBar} />
+          <LeftBar visible={visible} openLeftBar={openLeftBar} />
         </div>
         <div className='header__profile'>
           <Dropdown

@@ -5,6 +5,7 @@
   src: local('Open Sans'), url('./fonts/OpenSans-Regular.ttf') format('ttf');
 }
 
+@import 'antd/dist/antd.css';
 @import './variables.scss';
 @import './layout.scss';
 @import './aside.scss';
